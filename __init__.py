@@ -41,3 +41,9 @@ class OVOSRasaSkill(OVOSSkill):
         user_utterance = message.data.get('utterance')
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
         self.speak(rasa_response)
+
+    @intent_handler("HowAreYou.intent")
+    def handle_how_are_you_intent(self, message):
+        """This is a Padatious intent handler.
+        It is triggered using a list of sample phrases."""
+        self.speak_dialog("how.are.you")
