@@ -31,8 +31,8 @@ class RasaSocketClient:
 
 
 class OVOSRasaSkill(OVOSSkill):
-            
-    # 
+    
+    # def initialize(self):
     def __init__(self, *args, **kwargs):
         """The __init__ method is called when the Skill is first constructed.
         Note that self.bus, self.skill_id, self.settings, and
@@ -42,6 +42,7 @@ class OVOSRasaSkill(OVOSSkill):
         Skill, ideally after the super() call.
         """
         super().__init__(*args, **kwargs)
+
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
     @property
@@ -63,3 +64,5 @@ class OVOSRasaSkill(OVOSSkill):
         the skills.log file."""
         self.log.info("There are five types of log messages: " "info, debug, warning, error, and exception.")
         self.speak_dialog("hello.world")
+
+        pass
