@@ -32,19 +32,9 @@ class RasaSocketClient:
 
 class OVOSRasaSkill(OVOSSkill):
     
-    def __init__(self):
-        super(OVOSRasaSkill, self).__init__("OVOSRasaSkill")
-    ## def initialize(self):
-    # def __init__(self, *args, **kwargs):
-    #     """The __init__ method is called when the Skill is first constructed.
-    #     Note that self.bus, self.skill_id, self.settings, and
-    #     other base class settings are only available after the call to super().
-
-    #     This is a good place to load and pre-process any data needed by your
-    #     Skill, ideally after the super() call.
-    #     """
-    #     super().__init__(*args, **kwargs)
-
+    
+    def initialize(self):
+    
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
     @property
