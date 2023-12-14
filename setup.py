@@ -15,7 +15,7 @@ BASE_PATH = path.abspath(path.dirname(__file__))
 
 
 def find_resource_files():
-    resource_base_dirs = ("locale")
+    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "skill")
     base_dir = path.dirname(__file__)
     package_data = ["*.json"]
     for res in resource_base_dirs:
@@ -25,9 +25,10 @@ def find_resource_files():
                     package_data.append(
                         path.join(directory.replace(base_dir, "").lstrip('/'),
                                   '*'))
-#    print(package_data)
     return package_data
 
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 def get_requirements(requirements_filename: str):
     requirements_file = path.join(BASE_PATH, requirements_filename)
@@ -50,8 +51,6 @@ def get_requirements(requirements_filename: str):
     return requirements
     
 
-with open("README.md", "r") as f:
-    long_description = f.read()
 
 def get_version():
     """Find the version of the package"""
@@ -66,7 +65,7 @@ setup(
     package_dir={SKILL_PKG: ""},
     packages=[SKILL_PKG],
     package_data={SKILL_PKG:find_resource_files()},
-    author='Your Name',
+    author='ravindukathri',
     author_email='your.email@example.com',
     license='Apache-2.0',
     zip_safe=True, #
