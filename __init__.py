@@ -46,7 +46,7 @@ class OVOSRasaSkill(OVOSSkill):
         self.log.info("RASA TEST INTENT IS WORKING!!!!!")
         self.speak_dialog("hello.rasa")
 
-    @intent_handler(IntentBuilder('AskRasaIntent').require('TalkToRasa'))
+    @intent_handler(IntentBuilder("AskRasaIntent").require("TalkToRasa"))
     def handle_ask_rasa_intent(self, message):
         self.log.info("Connecting to RASA !!!! LOG MESSAGE")
         user_utterance = message.data.get('utterance')
