@@ -37,9 +37,15 @@ class OVOSRasaSkill(OVOSSkill):
     
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
-    #@property
-       
-    @intent_handler(IntentBuilder("HelloRasaIntent").require("HelloRasaKeyword"))
+    @property
+    def get_my_setting(self):
+        """Dynamically get the my_setting from the skill settings file.
+        If it doesn't exist, return the default value.
+        This will reflect live changes to settings.json files (local or from backend)
+        """
+        return self.settings.get("my_setting", "default_value")
+    
+    @intent_handler(IntentBuilder("HelloRasaaIntent").require("HelloRasaKeyword"))
     def handle_hello_world_intent(self, message):
         """Skills can log useful information. These will appear in the CLI and
         the skills.log file."""
