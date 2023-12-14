@@ -1,4 +1,4 @@
-from ovos_utils import classproperty
+#from ovos_utils import classproperty
 from ovos_workshop.skills.ovos import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 from ovos_utils.intents import IntentBuilder
@@ -37,7 +37,7 @@ class OVOSRasaSkill(OVOSSkill):
     
         self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
-    @property
+    #@property
        
     @intent_handler(IntentBuilder("HelloRasaIntent").require("HelloRasaKeyword"))
     def handle_hello_world_intent(self, message):
@@ -52,5 +52,10 @@ class OVOSRasaSkill(OVOSSkill):
         user_utterance = message.data.get('utterance')
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
         self.speak(rasa_response)
+
+    @intent_handler(IntentBuilder("ThankYouuIntent").require("ThankYouKeyword"))
+    def handle_thank_you_intent(self, message):
+        """This is an Adapt intent handler, it is triggered by a keyword."""
+        self.speak_dialog("welcome")
 
         pass
