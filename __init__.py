@@ -35,7 +35,7 @@ class OVOSRasaSkill(OVOSSkill):
     
     def initialize(self):
     
-        self.rasa_client = RasaSocketClient("http://0.0.0.0:5005")
+        self.rasa_client = RasaSocketClient("http://host.docker.internal:5005")
 
     @property
     def get_my_setting(self):
