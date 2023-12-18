@@ -45,7 +45,7 @@ class OVOSRasaSkill(OVOSSkill):
         """
         return self.settings.get("my_setting", "default_value")
     
-    @intent_handler(IntentBuilder("HelloRasaaIntent").require("HelloRasaKeyword"))
+    @intent_handler(IntentBuilder("HelloRasaIntent").require("HelloRasaKeyword"))
     def handle_hello_world_intent(self, message):
         """Skills can log useful information. These will appear in the CLI and
         the skills.log file."""
@@ -59,7 +59,7 @@ class OVOSRasaSkill(OVOSSkill):
         rasa_response = self.rasa_client.send_to_rasa(user_utterance)
         self.speak(rasa_response)
 
-    @intent_handler(IntentBuilder("ThankYouuIntent").require("ThankYouKeyword"))
+    @intent_handler(IntentBuilder("ThankYouIntent").require("ThankYouKeyword"))
     def handle_thank_you_intent(self, message):
         """This is an Adapt intent handler, it is triggered by a keyword."""
         self.speak_dialog("welcome")
