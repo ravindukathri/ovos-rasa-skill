@@ -14,6 +14,3 @@ The `OVOSRasaSkill` class encapsulates the functionality of intents within the O
 
 For detailed information regarding the intents recognized by the OVOSRasaSkill and their associated functionalities, please refer to the [OVOS Hello World Skill repository](https://github.com/OpenVoiceOS/skill-ovos-hello-world).
 
-## Additional Resources
-
-For any further inquiries or support, feel free to reach out to the [OpenVoiceOS](https://github.com/OpenVoiceOS) community.
