@@ -1,4 +1,4 @@
-#from ovos_utils import classproperty
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
 from ovos_workshop.skills import OVOSSkill
 from ovos_workshop.decorators import intent_handler
